@@ -1,4 +1,4 @@
-package net.jiffle.patterns.factory.ii;
+package net.jiffle.patterns.factory.iii.lombok;
 
 import lombok.RequiredArgsConstructor;
 

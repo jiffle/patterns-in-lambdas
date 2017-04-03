@@ -1,29 +1,32 @@
-package net.jiffle.patterns.factory.iii;
-
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+package net.jiffle.patterns.factory.iii.nolombok;
 
 import java.awt.*;
 
 @FunctionalInterface
 public interface ShapeFactory {
-    @RequiredArgsConstructor
-    @Getter( AccessLevel.PRIVATE)
-    public static enum ShapeType {
-        CIRCLE( (c, t) -> new Circle( c, t)),
+    enum ShapeType {
+        // use either explicit or implicit constructor references
+        CIRCLE( Circle::new),
         RECTANGLE( (c, t) -> new Rectangle( c, t));
 
         private final ShapeFactory constructor;
+
+        ShapeType(ShapeFactory constructor) {
+            this.constructor = constructor;
+        }
+
+        private ShapeFactory getConstructor() {
+            return this.constructor;
+        }
     }
 
     Shape create( Color colour, int thickness);
 
-    public static ShapeFactory createFactory( ShapeType type) {
+    static ShapeFactory createFactory( ShapeType type) {
         return type.getConstructor();
     }
 
-    public static ShapeFactory createFactory( String type) {
+    static ShapeFactory createFactory( String type) {
         if( type == null) {
             return (c, t) -> null;
             // or throw IllegalArgumentException

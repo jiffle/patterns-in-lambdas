@@ -1,9 +1,9 @@
-package net.jiffle.patterns.factory.ii;
+package net.jiffle.patterns.factory.ii.nolombok;
 
 import java.awt.*;
 
-import static net.jiffle.patterns.factory.ii.ShapeFactory.ShapeType.CIRCLE;
-import static net.jiffle.patterns.factory.ii.ShapeFactory.ShapeType.RECTANGLE;
+import static net.jiffle.patterns.factory.ii.nolombok.ShapeFactory.ShapeType.CIRCLE;
+import static net.jiffle.patterns.factory.ii.nolombok.ShapeFactory.ShapeType.RECTANGLE;
 
 public class FactoryPatternDemo {
     public static void main( String[] args) {

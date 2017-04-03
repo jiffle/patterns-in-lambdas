@@ -1,4 +1,4 @@
-package net.jiffle.patterns.factory.ii;
+package net.jiffle.patterns.factory.ii.lombok;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -11,7 +11,8 @@ public class ShapeFactory {
     @RequiredArgsConstructor
     @Getter( AccessLevel.PRIVATE)
     public static enum ShapeType {
-        CIRCLE( (c, t) -> new Circle( c, t)),
+        // use either explicit or implicit constructor references
+        CIRCLE( Circle::new),
         RECTANGLE( (c, t) -> new Rectangle( c, t));
 
         private final ShapeConstructor constructor;

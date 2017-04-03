@@ -1,17 +1,16 @@
-package net.jiffle.patterns.factory.iii;
+package net.jiffle.patterns.factory.iii.nolombok;
 
-import lombok.RequiredArgsConstructor;
+import java.awt.Color;
 
-import java.awt.*;
-import java.util.Arrays;
-import java.util.List;
+import static net.jiffle.patterns.factory.iii.nolombok.ShapeFactory.ShapeType.CIRCLE;
+import static net.jiffle.patterns.factory.iii.nolombok.ShapeFactory.ShapeType.RECTANGLE;
 
-import static net.jiffle.patterns.factory.iii.ShapeFactory.ShapeType.CIRCLE;
-import static net.jiffle.patterns.factory.iii.ShapeFactory.ShapeType.RECTANGLE;
-
-@RequiredArgsConstructor
 public class FactoryPatternDemo {
     private final ShapeFactory shapeFactory;
+
+    public FactoryPatternDemo(ShapeFactory shapeFactory) {
+        this.shapeFactory = shapeFactory;
+    }
 
     public static void main( String[] args) {
         // first: static factory method example
